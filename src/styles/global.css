@@ -1,1 +1,39 @@
 @import "tailwindcss";
+
+@theme {
+  --font-title: "Libre Baskerville", serif;
+  --font-body: "Afacad", sans-serif;
+
+  --color-keysar-cream: #f3f0e9;
+  --color-keysar-rose-100: #ecd1c8;
+  --color-keysar-rose-200: #e3c7c0;
+  --color-keysar-rose-300: #d8c1bb;
+
+  --color-keysar-text: #4e4a47;
+  --color-keysar-gold: #c3a583;
+  --color-keysar-gray: #737373;
+  --color-keysar-dark: #262626;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background: #f3f0e9;
+  color: #4e4a47;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
