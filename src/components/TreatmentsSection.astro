@@ -1,0 +1,225 @@
+---
+const facialTreatments = [
+  {
+    title: "Peel Off",
+    description:
+      "Renovación profunda que purifica y mejora la textura de la piel.",
+  },
+  {
+    title: "Oxycura",
+    description: "Oxigenación intensiva que devuelve frescura y luminosidad.",
+  },
+  {
+    title: "Lifting Facial",
+    description: "Reafirma, redefine y mejora la elasticidad facial.",
+  },
+  {
+    title: "Anti Acné",
+    description: "Equilibrio profundo para pieles con tendencia acneica.",
+  },
+  {
+    title: "Cryoskin",
+    description: "Efecto tensor y revitalizante con tecnología de frío.",
+  },
+  {
+    title: "Eternal Eye",
+    description: "Rejuvenece e ilumina la zona del contorno de ojos.",
+  },
+  {
+    title: "Divine Neck & Chest",
+    description: "Cuidado especializado para cuello y escote.",
+  },
+  {
+    title: "Ritual Eye VIP",
+    description: "Experiencia premium para revitalizar la mirada.",
+  },
+  {
+    title: "Golden Glow 24K",
+    description: "Reafirma, redefine y mejora la elasticidad facial.",
+  },
+  {
+    title: "Hilos Tensores Absorbentes",
+    description: "Mejora la firmeza y redefine contornos.",
+  },
+  {
+    title: "Experiencia Body VIP Keysar",
+    description:
+      "Una experiencia integral que combina técnicas avanzadas, atención personalizada y un enfoque sensorial único.",
+  },
+];
+
+const bodyTreatments = [
+  {
+    title: "Masaje Relajante",
+    description: "Calma profunda que libera estrés y tensión.",
+  },
+  {
+    title: "Masaje Descontracturante",
+    description:
+      "Alivia tensiones musculares profundas y devuelve movilidad al cuerpo.",
+  },
+  {
+    title: "Drenaje Linfático",
+    description: "Ligereza corporal que estimula y desinflama.",
+  },
+  {
+    title: "Masaje Cuerpo Completo",
+    description: "Equilibrio total para cuerpo y mente.",
+  },
+  {
+    title: "Reflexología",
+    description: "Armonía interna a través de puntos clave.",
+  },
+  {
+    title: "Antiacné Espalda",
+    description: "Purificación profunda para una piel uniforme.",
+  },
+  {
+    title: "Piernas Cansadas",
+    description: "Frescura inmediata y sensación de ligereza.",
+  },
+  {
+    title: "Experiencia Body VIP Keysar",
+    description: "El ritual corporal más exclusivo de la casa.",
+  },
+];
+---
+
+<section id="servicios" class="bg-[#fbfaf7] px-6 py-20 md:px-10 lg:py-24">
+  <div class="mx-auto max-w-7xl">
+    <div class="mx-auto max-w-3xl text-center">
+      <h2
+        class="font-title text-4xl leading-tight tracking-[-0.03em] text-keysar-text md:text-5xl"
+      >
+        Rituales creados para ti
+      </h2>
+
+      <div class="mt-5 flex items-center justify-center gap-3">
+        <span
+          class="rounded-full bg-keysar-gold px-5 py-1.5 text-xs font-semibold text-white"
+        >
+          Faciales
+        </span>
+
+        <span
+          class="rounded-full bg-[#efe4dc] px-5 py-1.5 text-xs font-semibold text-keysar-text"
+        >
+          Corporales
+        </span>
+      </div>
+    </div>
+
+    <div class="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        facialTreatments.slice(0, 6).map((treatment) => (
+          <article class="group overflow-hidden rounded-[4px] bg-[#f7eee9] shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md">
+            <div class="aspect-[1.75/1] overflow-hidden">
+              <img
+                src="/images/treatment-facial.png"
+                alt={`Tratamiento ${treatment.title}`}
+                class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                loading="lazy"
+              />
+            </div>
+
+            <div class="px-8 py-7 text-center">
+              <h3 class="font-title text-xl text-keysar-text">
+                {treatment.title}
+              </h3>
+
+              <div class="mx-auto mt-4 h-px w-full max-w-[220px] bg-keysar-gold/60" />
+
+              <p class="mx-auto mt-5 min-h-[56px] max-w-[260px] text-sm leading-6 text-keysar-gray">
+                {treatment.description}
+              </p>
+
+              <a
+                href="#agenda"
+                class="mt-6 inline-flex text-sm font-medium text-keysar-gold transition hover:text-keysar-text"
+              >
+                Descubrir tratamiento →
+              </a>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+
+    <details class="mt-8">
+      <summary
+        class="mx-auto flex w-fit cursor-pointer list-none rounded-full bg-keysar-gold px-7 py-3 text-sm font-semibold text-white transition hover:bg-[#ad8f6d]"
+      >
+        Ver todos los faciales
+      </summary>
+
+      <div class="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          facialTreatments.slice(6).map((treatment) => (
+            <article class="group overflow-hidden rounded-[4px] bg-[#f7eee9] shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md">
+              <div class="aspect-[1.75/1] overflow-hidden">
+                <img
+                  src="/images/treatment-facial.png"
+                  alt={`Tratamiento ${treatment.title}`}
+                  class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                  loading="lazy"
+                />
+              </div>
+
+              <div class="px-8 py-7 text-center">
+                <h3 class="font-title text-xl text-keysar-text">
+                  {treatment.title}
+                </h3>
+
+                <div class="mx-auto mt-4 h-px w-full max-w-[220px] bg-keysar-gold/60" />
+
+                <p class="mx-auto mt-5 min-h-[56px] max-w-[260px] text-sm leading-6 text-keysar-gray">
+                  {treatment.description}
+                </p>
+
+                <a
+                  href="#agenda"
+                  class="mt-6 inline-flex text-sm font-medium text-keysar-gold transition hover:text-keysar-text"
+                >
+                  Descubrir tratamiento →
+                </a>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </details>
+
+    <div class="mt-20">
+      <div class="mx-auto max-w-3xl text-center">
+        <span
+          class="rounded-full bg-[#efe4dc] px-5 py-1.5 text-xs font-semibold text-keysar-text"
+        >
+          Corporales
+        </span>
+      </div>
+
+      <div class="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        {
+          bodyTreatments.map((treatment) => (
+            <article class="rounded-[4px] border border-keysar-gold/25 bg-keysar-cream px-6 py-7 transition hover:border-keysar-gold hover:bg-[#f8eee9]">
+              <h3 class="font-title text-lg text-keysar-text">
+                {treatment.title}
+              </h3>
+
+              <p class="mt-4 text-sm leading-6 text-keysar-gray">
+                {treatment.description}
+              </p>
+
+              <a
+                href="#agenda"
+                class="mt-5 inline-flex text-sm font-medium text-keysar-gold transition hover:text-keysar-text"
+              >
+                Descubrir tratamiento →
+              </a>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
