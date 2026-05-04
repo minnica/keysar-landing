@@ -1,0 +1,70 @@
+---
+const locations = [
+  {
+    name: "Sucursal Centro",
+    address: "Dirección pendiente por confirmar",
+    mapUrl: "https://www.google.com/maps",
+  },
+  {
+    name: "Sucursal Norte",
+    address: "Dirección pendiente por confirmar",
+    mapUrl: "https://www.google.com/maps",
+  },
+  {
+    name: "Sucursal Sur",
+    address: "Dirección pendiente por confirmar",
+    mapUrl: "https://www.google.com/maps",
+  },
+  {
+    name: "Sucursal Premium",
+    address: "Dirección pendiente por confirmar",
+    mapUrl: "https://www.google.com/maps",
+  },
+];
+---
+
+<section
+  class="bg-gradient-to-b from-[#fbfaf7] to-[#ecd1c8] px-6 py-20 md:px-10 lg:py-24"
+>
+  <div class="mx-auto max-w-7xl">
+    <div class="mx-auto max-w-4xl text-center">
+      <h2
+        class="font-title text-4xl leading-tight tracking-[-0.03em] text-keysar-text md:text-5xl"
+      >
+        Vive la experiencia Keysar
+      </h2>
+
+      <p class="mx-auto mt-6 max-w-3xl text-base leading-7 text-keysar-text">
+        Encuentra la ubicación más cercana y disfruta de un ambiente íntimo,
+        sofisticado y relajante en cada una de nuestras sucursales.
+      </p>
+    </div>
+
+    <div class="mx-auto mt-14 grid max-w-4xl grid-cols-1 gap-8 md:grid-cols-2">
+      {
+        locations.map((location) => (
+          <article class="group overflow-hidden rounded-[4px] bg-[#a38a2e] shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md">
+            <div class="flex min-h-[180px] items-center justify-center bg-[#a38a2e] px-8 py-10 text-center">
+              <div>
+                <h3 class="font-title text-2xl text-white">{location.name}</h3>
+
+                <p class="mt-4 text-sm leading-6 text-white/85">
+                  {location.address}
+                </p>
+
+                <a
+                  href={location.mapUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="mt-6 inline-flex rounded-full bg-white/90 px-5 py-2 text-sm font-semibold text-keysar-text transition hover:bg-white"
+                >
+                  Ver en Google Maps
+                </a>
+              </div>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
