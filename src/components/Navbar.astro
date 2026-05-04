@@ -1,6 +1,6 @@
 <header class="absolute left-0 top-0 z-30 w-full">
   <nav
-    class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-10"
+    class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-10"
   >
     <a href="/" aria-label="Keysar Cosmetics" class="inline-flex items-center">
       <img
@@ -46,11 +46,65 @@
       </a>
     </div>
 
-    <a
-      href="#agenda"
-      class="inline-flex rounded-full border border-keysar-text/30 px-4 py-2 text-xs font-medium text-keysar-text transition hover:border-keysar-gold hover:text-keysar-gold md:hidden"
-    >
-      Agendar
-    </a>
+    <details class="group relative md:hidden">
+      <summary
+        class="flex h-10 w-10 cursor-pointer list-none items-center justify-center rounded-full border border-keysar-text/30 text-keysar-text"
+        aria-label="Abrir menú"
+      >
+        <span class="sr-only">Abrir menú</span>
+
+        <svg
+          class="h-5 w-5 group-open:hidden"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          aria-hidden="true"
+        >
+          <path d="M4 7h16"></path>
+          <path d="M4 12h16"></path>
+          <path d="M4 17h16"></path>
+        </svg>
+
+        <svg
+          class="hidden h-5 w-5 group-open:block"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          aria-hidden="true"
+        >
+          <path d="M6 6l12 12"></path>
+          <path d="M18 6L6 18"></path>
+        </svg>
+      </summary>
+
+      <div
+        class="absolute right-0 top-12 w-56 rounded-2xl border border-keysar-text/10 bg-white/95 p-3 text-sm font-medium text-keysar-text shadow-lg backdrop-blur"
+      >
+        <a
+          href="#conocenos"
+          class="block rounded-xl px-4 py-3 transition hover:bg-keysar-cream"
+        >
+          Conócenos
+        </a>
+
+        <a
+          href="#servicios"
+          class="block rounded-xl px-4 py-3 transition hover:bg-keysar-cream"
+        >
+          Servicios
+        </a>
+
+        <a
+          href="#agenda"
+          class="block rounded-xl px-4 py-3 transition hover:bg-keysar-cream"
+        >
+          Agendar cita
+        </a>
+      </div>
+    </details>
   </nav>
 </header>

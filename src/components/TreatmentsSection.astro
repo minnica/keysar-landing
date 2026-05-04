@@ -89,7 +89,7 @@ const bodyTreatments = [
   <div class="mx-auto max-w-7xl">
     <div class="mx-auto max-w-3xl text-center">
       <h2
-        class="font-title text-4xl leading-tight tracking-[-0.03em] text-keysar-text md:text-5xl"
+        class="font-title text-3xl leading-tight tracking-[-0.03em] text-keysar-text sm:text-4xl md:text-5xl"
       >
         Rituales creados para ti
       </h2>
@@ -109,7 +109,9 @@ const bodyTreatments = [
       </div>
     </div>
 
-    <div class="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+    <div
+      class="mt-10 grid grid-cols-1 gap-7 sm:grid-cols-2 lg:mt-12 lg:grid-cols-3 lg:gap-8"
+    >
       {
         facialTreatments.slice(0, 6).map((treatment) => (
           <article class="group overflow-hidden rounded-[4px] bg-[#f7eee9] shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md">
