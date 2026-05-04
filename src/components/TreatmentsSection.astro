@@ -95,68 +95,32 @@ const bodyTreatments = [
       </h2>
 
       <div class="mt-5 flex items-center justify-center gap-3">
-        <span
-          class="rounded-full bg-keysar-gold px-5 py-1.5 text-xs font-semibold text-white"
+        <button
+          type="button"
+          data-treatment-tab="faciales"
+          aria-pressed="true"
+          class="rounded-full bg-keysar-gold px-5 py-1.5 text-xs font-semibold text-white transition"
         >
           Faciales
-        </span>
+        </button>
 
-        <span
-          class="rounded-full bg-[#efe4dc] px-5 py-1.5 text-xs font-semibold text-keysar-text"
+        <button
+          type="button"
+          data-treatment-tab="corporales"
+          aria-pressed="false"
+          class="rounded-full bg-[#efe4dc] px-5 py-1.5 text-xs font-semibold text-keysar-text transition"
         >
           Corporales
-        </span>
+        </button>
       </div>
     </div>
 
-    <div
-      class="mt-10 grid grid-cols-1 gap-7 sm:grid-cols-2 lg:mt-12 lg:grid-cols-3 lg:gap-8"
-    >
-      {
-        facialTreatments.slice(0, 6).map((treatment) => (
-          <article class="group overflow-hidden rounded-[4px] bg-[#f7eee9] shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md">
-            <div class="aspect-[1.75/1] overflow-hidden">
-              <img
-                src="/images/treatment-facial.png"
-                alt={`Tratamiento ${treatment.title}`}
-                class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
-                loading="lazy"
-              />
-            </div>
-
-            <div class="px-8 py-7 text-center">
-              <h3 class="font-title text-xl text-keysar-text">
-                {treatment.title}
-              </h3>
-
-              <div class="mx-auto mt-4 h-px w-full max-w-[220px] bg-keysar-gold/60" />
-
-              <p class="mx-auto mt-5 min-h-[56px] max-w-[260px] text-sm leading-6 text-keysar-gray">
-                {treatment.description}
-              </p>
-
-              <a
-                href="#agenda"
-                class="mt-6 inline-flex text-sm font-medium text-keysar-gold transition hover:text-keysar-text"
-              >
-                Descubrir tratamiento →
-              </a>
-            </div>
-          </article>
-        ))
-      }
-    </div>
-
-    <details class="mt-8">
-      <summary
-        class="mx-auto flex w-fit cursor-pointer list-none rounded-full bg-keysar-gold px-7 py-3 text-sm font-semibold text-white transition hover:bg-[#ad8f6d]"
+    <div data-treatment-panel="faciales">
+      <div
+        class="mt-10 grid grid-cols-1 gap-7 sm:grid-cols-2 lg:mt-12 lg:grid-cols-3 lg:gap-8"
       >
-        Ver todos los faciales
-      </summary>
-
-      <div class="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {
-          facialTreatments.slice(6).map((treatment) => (
+          facialTreatments.slice(0, 3).map((treatment) => (
             <article class="group overflow-hidden rounded-[4px] bg-[#f7eee9] shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md">
               <div class="aspect-[1.75/1] overflow-hidden">
                 <img
@@ -189,39 +153,166 @@ const bodyTreatments = [
           ))
         }
       </div>
-    </details>
 
-    <div class="mt-20">
-      <div class="mx-auto max-w-3xl text-center">
-        <span
-          class="rounded-full bg-[#efe4dc] px-5 py-1.5 text-xs font-semibold text-keysar-text"
+      <details class="mt-8">
+        <summary
+          class="mx-auto flex w-fit cursor-pointer list-none rounded-full bg-keysar-gold px-7 py-3 text-sm font-semibold text-white transition hover:bg-[#ad8f6d]"
         >
-          Corporales
-        </span>
-      </div>
+          Ver todos los faciales
+        </summary>
 
-      <div class="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {
+            facialTreatments.slice(3).map((treatment) => (
+              <article class="group overflow-hidden rounded-[4px] bg-[#f7eee9] shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md">
+                <div class="aspect-[1.75/1] overflow-hidden">
+                  <img
+                    src="/images/treatment-facial.png"
+                    alt={`Tratamiento ${treatment.title}`}
+                    class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                </div>
+
+                <div class="px-8 py-7 text-center">
+                  <h3 class="font-title text-xl text-keysar-text">
+                    {treatment.title}
+                  </h3>
+
+                  <div class="mx-auto mt-4 h-px w-full max-w-[220px] bg-keysar-gold/60" />
+
+                  <p class="mx-auto mt-5 min-h-[56px] max-w-[260px] text-sm leading-6 text-keysar-gray">
+                    {treatment.description}
+                  </p>
+
+                  <a
+                    href="#agenda"
+                    class="mt-6 inline-flex text-sm font-medium text-keysar-gold transition hover:text-keysar-text"
+                  >
+                    Descubrir tratamiento →
+                  </a>
+                </div>
+              </article>
+            ))
+          }
+        </div>
+      </details>
+    </div>
+
+    <div data-treatment-panel="corporales" class="hidden">
+      <div
+        class="mt-10 grid grid-cols-1 gap-7 sm:grid-cols-2 lg:mt-12 lg:grid-cols-3 lg:gap-8"
+      >
         {
-          bodyTreatments.map((treatment) => (
-            <article class="rounded-[4px] border border-keysar-gold/25 bg-keysar-cream px-6 py-7 transition hover:border-keysar-gold hover:bg-[#f8eee9]">
-              <h3 class="font-title text-lg text-keysar-text">
-                {treatment.title}
-              </h3>
+          bodyTreatments.slice(0, 3).map((treatment) => (
+            <article class="group overflow-hidden rounded-[4px] bg-[#f7eee9] shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md">
+              <div class="aspect-[1.75/1] overflow-hidden">
+                <img
+                  src="/images/body-massage.png"
+                  alt={`Tratamiento corporal ${treatment.title}`}
+                  class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                  loading="lazy"
+                />
+              </div>
 
-              <p class="mt-4 text-sm leading-6 text-keysar-gray">
-                {treatment.description}
-              </p>
+              <div class="px-8 py-7 text-center">
+                <h3 class="font-title text-xl text-keysar-text">
+                  {treatment.title}
+                </h3>
 
-              <a
-                href="#agenda"
-                class="mt-5 inline-flex text-sm font-medium text-keysar-gold transition hover:text-keysar-text"
-              >
-                Descubrir tratamiento →
-              </a>
+                <div class="mx-auto mt-4 h-px w-full max-w-[220px] bg-keysar-gold/60" />
+
+                <p class="mx-auto mt-5 min-h-[56px] max-w-[260px] text-sm leading-6 text-keysar-gray">
+                  {treatment.description}
+                </p>
+
+                <a
+                  href="#agenda"
+                  class="mt-6 inline-flex text-sm font-medium text-keysar-gold transition hover:text-keysar-text"
+                >
+                  Descubrir tratamiento →
+                </a>
+              </div>
             </article>
           ))
         }
       </div>
+
+      <details class="mt-8">
+        <summary
+          class="mx-auto flex w-fit cursor-pointer list-none rounded-full bg-keysar-gold px-7 py-3 text-sm font-semibold text-white transition hover:bg-[#ad8f6d]"
+        >
+          Ver todos los corporales
+        </summary>
+
+        <div class="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {
+            bodyTreatments.slice(3).map((treatment) => (
+              <article class="group overflow-hidden rounded-[4px] bg-[#f7eee9] shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md">
+                <div class="aspect-[1.75/1] overflow-hidden">
+                  <img
+                    src="/images/body-massage.png"
+                    alt={`Tratamiento corporal ${treatment.title}`}
+                    class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                </div>
+
+                <div class="px-8 py-7 text-center">
+                  <h3 class="font-title text-xl text-keysar-text">
+                    {treatment.title}
+                  </h3>
+
+                  <div class="mx-auto mt-4 h-px w-full max-w-[220px] bg-keysar-gold/60" />
+
+                  <p class="mx-auto mt-5 min-h-[56px] max-w-[260px] text-sm leading-6 text-keysar-gray">
+                    {treatment.description}
+                  </p>
+
+                  <a
+                    href="#agenda"
+                    class="mt-6 inline-flex text-sm font-medium text-keysar-gold transition hover:text-keysar-text"
+                  >
+                    Descubrir tratamiento →
+                  </a>
+                </div>
+              </article>
+            ))
+          }
+        </div>
+      </details>
     </div>
   </div>
 </section>
+
+<script>
+  const tabButtons = document.querySelectorAll("[data-treatment-tab]");
+  const panels = document.querySelectorAll("[data-treatment-panel]");
+
+  function setActiveTab(selectedTab) {
+    tabButtons.forEach((button) => {
+      const isActive = button.dataset.treatmentTab === selectedTab;
+
+      button.classList.toggle("bg-keysar-gold", isActive);
+      button.classList.toggle("text-white", isActive);
+
+      button.classList.toggle("bg-[#efe4dc]", !isActive);
+      button.classList.toggle("text-keysar-text", !isActive);
+
+      button.setAttribute("aria-pressed", String(isActive));
+    });
+
+    panels.forEach((panel) => {
+      const isActive = panel.dataset.treatmentPanel === selectedTab;
+      panel.classList.toggle("hidden", !isActive);
+    });
+  }
+
+  tabButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      setActiveTab(button.dataset.treatmentTab);
+    });
+  });
+
+  setActiveTab("faciales");
+</script>
