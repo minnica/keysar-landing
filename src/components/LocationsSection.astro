@@ -49,12 +49,12 @@ const locations = [
     >
       {
         locations.map((location) => (
-          <article class="group overflow-hidden rounded-[4px] bg-[#a38a2e] shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md">
-            <div class="flex min-h-[160px] items-center justify-center bg-[#a38a2e] px-6 py-8 text-center sm:min-h-[180px] sm:px-8 sm:py-10">
+          <article class="group overflow-hidden rounded-[4px] border border-keysar-gold/20 bg-[#e8d6cf] shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md">
+            <div class="flex min-h-[160px] items-center justify-center bg-[#e8d6cf] px-6 py-8 text-center sm:min-h-[180px] sm:px-8 sm:py-10">
               <div>
-                <h3 class="font-title text-2xl text-white">{location.name}</h3>
+                <h3 class="font-title text-2xl text-keysar-dark">{location.name}</h3>
 
-                <p class="mt-4 text-sm leading-6 text-white/85">
+                <p class="mt-4 text-sm leading-6 text-keysar-text">
                   {location.address}
                 </p>
 
@@ -62,7 +62,7 @@ const locations = [
                   href={location.mapUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="mt-6 inline-flex rounded-full bg-white/90 px-5 py-2 text-sm font-semibold text-keysar-text transition hover:bg-white"
+                  class="mt-6 inline-flex rounded-full bg-white px-5 py-2 text-sm font-semibold text-keysar-text transition hover:bg-keysar-cream"
                 >
                   Ver en Google Maps
                 </a>
