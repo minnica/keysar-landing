@@ -1,39 +1,269 @@
+---
+const testimonials = [
+  {
+    quote: "El mejor tratamiento que me ha funcionado al 100%",
+    name: "María Pérez",
+    role: "Cliente Keysar Cosmetics",
+    imageSrc: "/images/testimonial-maria.png",
+    initials: "MP",
+  },
+  {
+    quote: "Salí relajada y con la piel luminosa desde la primera visita.",
+    name: "Sofía Herrera",
+    role: "Cliente Keysar Cosmetics",
+    initials: "SH",
+  },
+  {
+    quote:
+      "La atención fue muy profesional; entendieron justo lo que necesitaba.",
+    name: "Valeria Gómez",
+    role: "Cliente Keysar Cosmetics",
+    initials: "VG",
+  },
+];
+---
+
 <section class="bg-[#f7e9f3] px-6 py-20 md:px-10 lg:py-24">
   <div class="mx-auto max-w-7xl">
-    <div class="mx-auto max-w-4xl text-center">
+    <div class="relative mx-auto max-w-5xl text-center">
       <h2
-        class="font-title text-3xl leading-tight tracking-[-0.03em] text-[#262626] sm:text-4xl md:text-5xl"
+        class="font-title text-3xl leading-tight tracking-normal text-[#262626] sm:text-4xl md:text-5xl"
       >
         Nuestros clientes aman Keysar<br class="hidden md:block" />
         Cosmetics
       </h2>
 
-      <blockquote class="mx-auto mt-14 max-w-3xl">
-        <p
-          class="font-title text-xl leading-relaxed text-[#262626] sm:text-2xl md:text-3xl"
+      <button
+        type="button"
+        data-testimonial-prev
+        aria-label="Ver referencia anterior"
+        class="absolute left-0 top-[58%] hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-[#262626]/10 bg-white/85 text-[#262626] shadow-sm transition hover:border-keysar-gold hover:text-keysar-gold md:inline-flex lg:h-11 lg:w-11"
+      >
+        <svg
+          class="h-4 w-4"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
         >
-          “El mejor tratamiento que me ha funcionado al 100%”
-        </p>
-      </blockquote>
+          <path d="m15 18-6-6 6-6"></path>
+        </svg>
+      </button>
 
-      <div class="mt-8 flex items-center justify-center gap-4">
-        <img
-          src="/images/testimonial-maria.png"
-          alt="María Pérez"
-          class="h-14 w-14 rounded-full object-cover"
-          loading="lazy"
-        />
+      <button
+        type="button"
+        data-testimonial-next
+        aria-label="Ver siguiente referencia"
+        class="absolute right-0 top-[58%] hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-[#262626]/10 bg-white/85 text-[#262626] shadow-sm transition hover:border-keysar-gold hover:text-keysar-gold md:inline-flex lg:h-11 lg:w-11"
+      >
+        <svg
+          class="h-4 w-4"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path d="m9 18 6-6-6-6"></path>
+        </svg>
+      </button>
 
-        <div class="text-left">
-          <p class="text-sm font-semibold text-[#262626]">María Pérez</p>
-          <p class="text-xs text-keysar-gray">Cliente Keysar Cosmetics</p>
-        </div>
+      <div
+        data-testimonials-carousel
+        aria-live="polite"
+        class="mx-auto mt-14 max-w-3xl"
+      >
+        {
+          testimonials.map((testimonial, index) => (
+            <article
+              data-testimonial-slide
+              aria-hidden={index === 0 ? "false" : "true"}
+              class={index === 0 ? "" : "hidden"}
+            >
+              <blockquote>
+                <p class="font-title text-xl leading-relaxed text-[#262626] sm:text-2xl md:text-3xl">
+                  “{testimonial.quote}”
+                </p>
+              </blockquote>
+
+              <div class="mt-8 flex items-center justify-center gap-4">
+                {testimonial.imageSrc ? (
+                  <img
+                    src={testimonial.imageSrc}
+                    alt={testimonial.name}
+                    class="h-14 w-14 rounded-full object-cover"
+                    loading="lazy"
+                  />
+                ) : (
+                  <span
+                    class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-white text-sm font-semibold text-keysar-gold shadow-sm"
+                    aria-hidden="true"
+                  >
+                    {testimonial.initials}
+                  </span>
+                )}
+
+                <div class="text-left">
+                  <p class="text-sm font-semibold text-[#262626]">
+                    {testimonial.name}
+                  </p>
+                  <p class="text-xs text-keysar-gray">{testimonial.role}</p>
+                </div>
+              </div>
+            </article>
+          ))
+        }
       </div>
 
-      <div class="mt-10 flex items-center justify-center gap-2">
-        <span class="h-2 w-2 rounded-full bg-[#262626]"></span>
-        <span class="h-2 w-2 rounded-full bg-[#262626]/25"></span>
+      <div class="mt-10 flex items-center justify-center gap-3">
+        <button
+          type="button"
+          data-testimonial-prev
+          aria-label="Ver referencia anterior"
+          class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[#262626]/10 bg-white/85 text-[#262626] shadow-sm transition hover:border-keysar-gold hover:text-keysar-gold md:hidden"
+        >
+          <svg
+            class="h-4 w-4"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="m15 18-6-6 6-6"></path>
+          </svg>
+        </button>
+
+        <div class="flex items-center justify-center gap-2">
+        {
+          testimonials.map((testimonial, index) => (
+            <button
+              type="button"
+              data-testimonial-dot={index}
+              aria-label={`Ver referencia de ${testimonial.name}`}
+              aria-current={index === 0 ? "true" : "false"}
+              class={`h-2 rounded-full transition-all ${
+                index === 0 ? "w-6 bg-[#262626]" : "w-2 bg-[#262626]/25"
+              }`}
+            />
+          ))
+        }
+        </div>
+
+        <button
+          type="button"
+          data-testimonial-next
+          aria-label="Ver siguiente referencia"
+          class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[#262626]/10 bg-white/85 text-[#262626] shadow-sm transition hover:border-keysar-gold hover:text-keysar-gold md:hidden"
+        >
+          <svg
+            class="h-4 w-4"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="m9 18 6-6-6-6"></path>
+          </svg>
+        </button>
       </div>
     </div>
   </div>
 </section>
+
+<script>
+  const testimonialSlides = document.querySelectorAll(
+    "[data-testimonial-slide]",
+  );
+  const testimonialDots = document.querySelectorAll("[data-testimonial-dot]");
+  const testimonialPreviousButtons = document.querySelectorAll(
+    "[data-testimonial-prev]",
+  );
+  const testimonialNextButtons = document.querySelectorAll(
+    "[data-testimonial-next]",
+  );
+  const testimonialsCarousel = document.querySelector(
+    "[data-testimonials-carousel]",
+  );
+  let activeTestimonial = 0;
+  let testimonialRotation;
+
+  function showTestimonial(index) {
+    if (!testimonialSlides.length) {
+      return;
+    }
+
+    activeTestimonial =
+      (index + testimonialSlides.length) % testimonialSlides.length;
+
+    testimonialSlides.forEach((slide, slideIndex) => {
+      const isActive = slideIndex === activeTestimonial;
+
+      slide.classList.toggle("hidden", !isActive);
+      slide.setAttribute("aria-hidden", String(!isActive));
+    });
+
+    testimonialDots.forEach((dot, dotIndex) => {
+      const isActive = dotIndex === activeTestimonial;
+
+      dot.classList.toggle("w-6", isActive);
+      dot.classList.toggle("bg-[#262626]", isActive);
+      dot.classList.toggle("w-2", !isActive);
+      dot.classList.toggle("bg-[#262626]/25", !isActive);
+      dot.setAttribute("aria-current", String(isActive));
+    });
+  }
+
+  function stopTestimonialRotation() {
+    if (testimonialRotation) {
+      window.clearInterval(testimonialRotation);
+    }
+  }
+
+  function startTestimonialRotation() {
+    stopTestimonialRotation();
+
+    testimonialRotation = window.setInterval(() => {
+      showTestimonial(activeTestimonial + 1);
+    }, 5500);
+  }
+
+  testimonialDots.forEach((dot, index) => {
+    dot.addEventListener("click", () => {
+      showTestimonial(index);
+      startTestimonialRotation();
+    });
+  });
+
+  testimonialPreviousButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      showTestimonial(activeTestimonial - 1);
+      startTestimonialRotation();
+    });
+  });
+
+  testimonialNextButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      showTestimonial(activeTestimonial + 1);
+      startTestimonialRotation();
+    });
+  });
+
+  testimonialsCarousel?.addEventListener("mouseenter", stopTestimonialRotation);
+  testimonialsCarousel?.addEventListener("mouseleave", startTestimonialRotation);
+  testimonialsCarousel?.addEventListener("focusin", stopTestimonialRotation);
+  testimonialsCarousel?.addEventListener("focusout", startTestimonialRotation);
+
+  showTestimonial(0);
+  startTestimonialRotation();
+</script>
