@@ -1,0 +1,422 @@
+---
+const videos = [
+  {
+    id: 1,
+    webm: "/videos/video-01.webm",
+    mp4: "/videos/video-01-optimizado.mp4",
+    poster: "/videos/video-01-poster.webp",
+  },
+  {
+    id: 2,
+    webm: "/videos/video-02.webm",
+    mp4: "/videos/video-02-optimizado.mp4",
+    poster: "/videos/video-02-poster.webp",
+  },
+  {
+    id: 3,
+    webm: "/videos/video-03.webm",
+    mp4: "/videos/video-03-optimizado.mp4",
+    poster: "/videos/video-03-poster.webp",
+  },
+  {
+    id: 4,
+    webm: "/videos/video-04.webm",
+    mp4: "/videos/video-04-optimizado.mp4",
+    poster: "/videos/video-04-poster.webp",
+  },
+  {
+    id: 5,
+    webm: "/videos/video-05.webm",
+    mp4: "/videos/video-05-optimizado.mp4",
+    poster: "/videos/video-05-poster.webp",
+  },
+  {
+    id: 6,
+    webm: "/videos/video-06.webm",
+    mp4: "/videos/video-06-optimizado.mp4",
+    poster: "/videos/video-06-poster.webp",
+  },
+  {
+    id: 7,
+    webm: "/videos/video-07.webm",
+    mp4: "/videos/video-07-optimizado.mp4",
+    poster: "/videos/video-07-poster.webp",
+  },
+  {
+    id: 8,
+    webm: "/videos/video-08.webm",
+    mp4: "/videos/video-08-optimizado.mp4",
+    poster: "/videos/video-08-poster.webp",
+  },
+  {
+    id: 9,
+    webm: "/videos/video-09.webm",
+    mp4: "/videos/video-09-optimizado.mp4",
+    poster: "/videos/video-09-poster.webp",
+  },
+  {
+    id: 10,
+    webm: "/videos/video-10.webm",
+    mp4: "/videos/video-10-optimizado.mp4",
+    poster: "/videos/video-10-poster.webp",
+  },
+  {
+    id: 11,
+    webm: "/videos/video-11.webm",
+    mp4: "/videos/video-11-optimizado.mp4",
+    poster: "/videos/video-11-poster.webp",
+  },
+];
+---
+
+<section class="bg-keysar-cream px-5 py-16 sm:px-6 md:px-10 md:py-20 lg:py-24">
+  <div class="mx-auto max-w-7xl">
+
+    <!-- Header -->
+    <div class="mx-auto max-w-3xl text-center">
+      <h2
+        class="font-title text-3xl leading-tight tracking-[-0.03em] text-keysar-text sm:text-4xl md:text-5xl"
+      >
+        Momentos que transforman
+      </h2>
+      <p class="mx-auto mt-6 max-w-2xl text-base leading-7 text-keysar-text">
+        Descubre la experiencia Keysar a través de cada ritual, técnica y momento de bienestar real.
+      </p>
+    </div>
+
+    <!-- Carousel -->
+    <div class="mt-10 lg:mt-12">
+
+      <!-- Nav arrows -->
+      <div class="flex items-center justify-end gap-2">
+        <button
+          type="button"
+          data-reels-prev
+          aria-label="Ver video anterior"
+          class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-keysar-gold/40 bg-white text-keysar-text shadow-sm transition hover:border-keysar-gold hover:text-keysar-gold disabled:cursor-not-allowed disabled:opacity-35"
+        >
+          <svg
+            class="h-4 w-4"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="m15 18-6-6 6-6"></path>
+          </svg>
+        </button>
+
+        <button
+          type="button"
+          data-reels-next
+          aria-label="Ver siguiente video"
+          class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-keysar-gold/40 bg-white text-keysar-text shadow-sm transition hover:border-keysar-gold hover:text-keysar-gold disabled:cursor-not-allowed disabled:opacity-35"
+        >
+          <svg
+            class="h-4 w-4"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="m9 18 6-6-6-6"></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Scroll track -->
+      <div
+        data-reels-carousel
+        role="region"
+        aria-label="Galería de videos Keysar"
+        tabindex="0"
+        class="mt-4 grid auto-cols-[calc((100%-0.375rem)/1.5)] grid-flow-col snap-x snap-mandatory gap-3 overflow-x-auto scroll-smooth pb-4 [scrollbar-width:none] sm:auto-cols-[calc((100%-2rem)/3)] sm:gap-4 lg:auto-cols-[calc((100%-4rem)/5)] lg:gap-4 [&::-webkit-scrollbar]:hidden"
+      >
+        {
+          videos.map((video) => (
+            <button
+              type="button"
+              data-reel-trigger
+              data-webm={video.webm}
+              data-mp4={video.mp4}
+              data-poster={video.poster}
+              aria-label={`Reproducir video ${video.id} de ${videos.length}`}
+              class="group relative snap-start overflow-hidden rounded-[4px] bg-keysar-rose-100 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-keysar-gold focus:ring-offset-2"
+            >
+              <!-- Poster 9:16 -->
+              <div class="aspect-[9/16] overflow-hidden">
+                <img
+                  src={video.poster}
+                  alt={`Experiencia Keysar Cosmetics — momento ${video.id}`}
+                  class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+
+              <!-- Overlay + play button -->
+              <div class="absolute inset-0 flex items-center justify-center bg-black/10 transition duration-300 group-hover:bg-black/30 group-focus-visible:bg-black/30">
+                <div
+                  class="flex h-12 w-12 scale-90 items-center justify-center rounded-full bg-white/80 text-keysar-dark shadow-md backdrop-blur-sm transition duration-200 group-hover:scale-100 group-focus-visible:scale-100"
+                  aria-hidden="true"
+                >
+                  <svg
+                    class="h-5 w-5 translate-x-0.5"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </div>
+              </div>
+            </button>
+          ))
+        }
+      </div>
+
+      <!-- Dot indicators -->
+      <div
+        class="mt-3 flex items-center justify-center gap-2"
+        aria-hidden="true"
+      >
+        {
+          videos.map((_, index) => (
+            <span
+              data-reel-dot
+              class={`h-1.5 rounded-full transition-all duration-300 ${
+                index === 0 ? "w-5 bg-keysar-gold" : "w-1.5 bg-keysar-gold/30"
+              }`}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Modal lightbox ─── -->
+<!--
+  starts hidden; JS adds/removes class "flex" and removes/adds "hidden".
+  inert attribute blocks focus/interaction when closed.
+-->
+<div
+  data-reels-modal
+  role="dialog"
+  aria-modal="true"
+  aria-label="Reproductor de video Keysar"
+  inert
+  class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/85 p-4 backdrop-blur-sm"
+>
+  <!-- Backdrop: click outside closes -->
+  <div
+    data-reels-modal-backdrop
+    class="absolute inset-0"
+    aria-hidden="true"
+  ></div>
+
+  <!-- Content -->
+  <div class="relative z-10 w-full max-w-[300px] sm:max-w-[340px]">
+
+    <!-- Close button (top-right, above video) -->
+    <button
+      data-reels-modal-close
+      type="button"
+      aria-label="Cerrar video"
+      class="absolute -right-1 -top-12 flex h-10 w-10 items-center justify-center rounded-full bg-white/15 text-white transition hover:bg-white/30 focus:outline-none focus:ring-2 focus:ring-white/50"
+    >
+      <svg
+        class="h-5 w-5"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        aria-hidden="true"
+      >
+        <path d="M6 6l12 12M18 6L6 18"></path>
+      </svg>
+    </button>
+
+    <!--
+      Video element.
+      No src / no <source> on page load → zero bytes fetched.
+      Sources are injected by JS only when the user opens a video.
+      preload="none" ensures no speculative fetch even after sources are set.
+    -->
+    <video
+      data-reels-player
+      class="aspect-[9/16] w-full rounded-lg shadow-2xl"
+      playsinline
+      controls
+      preload="none"
+    ></video>
+  </div>
+</div>
+
+<script>
+  const carousel = document.querySelector("[data-reels-carousel]");
+  const prevBtn = document.querySelector("[data-reels-prev]");
+  const nextBtn = document.querySelector("[data-reels-next]");
+  const dots = document.querySelectorAll("[data-reel-dot]");
+  const triggers = document.querySelectorAll("[data-reel-trigger]");
+
+  const modal = document.querySelector("[data-reels-modal]");
+  const modalBackdrop = document.querySelector("[data-reels-modal-backdrop]");
+  const modalClose = document.querySelector("[data-reels-modal-close]");
+  const player = document.querySelector("[data-reels-player]");
+
+  let activeTrigger = null;
+
+  // ── Carousel helpers ──────────────────────────────────────────
+
+  function getStep() {
+    const card = carousel && carousel.querySelector("[data-reel-trigger]");
+    if (!card || !carousel) return carousel ? carousel.clientWidth : 0;
+    const gap = parseFloat(getComputedStyle(carousel).columnGap || "0");
+    return card.getBoundingClientRect().width + gap;
+  }
+
+  function updateDots() {
+    if (!carousel || !dots.length) return;
+    const step = getStep();
+    if (step <= 0) return;
+    const index = Math.max(
+      0,
+      Math.min(
+        dots.length - 1,
+        Math.round(carousel.scrollLeft / step)
+      )
+    );
+    dots.forEach((dot, i) => {
+      const active = i === index;
+      dot.classList.toggle("w-5", active);
+      dot.classList.toggle("bg-keysar-gold", active);
+      dot.classList.toggle("w-1.5", !active);
+      dot.classList.toggle("bg-keysar-gold/30", !active);
+    });
+  }
+
+  function updateNavButtons() {
+    if (!carousel || !prevBtn || !nextBtn) return;
+    const atStart = carousel.scrollLeft <= 2;
+    const atEnd =
+      carousel.scrollLeft >= carousel.scrollWidth - carousel.clientWidth - 2;
+    prevBtn.disabled = atStart;
+    nextBtn.disabled = atEnd;
+  }
+
+  prevBtn &&
+    prevBtn.addEventListener("click", () => {
+      carousel && carousel.scrollBy({ left: -getStep(), behavior: "smooth" });
+    });
+
+  nextBtn &&
+    nextBtn.addEventListener("click", () => {
+      carousel && carousel.scrollBy({ left: getStep(), behavior: "smooth" });
+    });
+
+  if (carousel) {
+    let ticking = false;
+    carousel.addEventListener("scroll", () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        updateNavButtons();
+        updateDots();
+        ticking = false;
+      });
+    });
+    updateNavButtons();
+    updateDots();
+  }
+
+  // ── Modal ─────────────────────────────────────────────────────
+
+  function openModal(trigger) {
+    if (!modal || !player) return;
+
+    const webm = trigger.dataset.webm || "";
+    const mp4 = trigger.dataset.mp4 || "";
+    const poster = trigger.dataset.poster || "";
+
+    activeTrigger = trigger;
+
+    // Inject sources now — nothing was fetched before this moment
+    player.innerHTML = "";
+
+    if (webm) {
+      const srcWebm = document.createElement("source");
+      srcWebm.src = webm;
+      srcWebm.type = "video/webm";
+      player.appendChild(srcWebm);
+    }
+
+    const srcMp4 = document.createElement("source");
+    srcMp4.src = mp4;
+    srcMp4.type = "video/mp4";
+    player.appendChild(srcMp4);
+
+    player.setAttribute("poster", poster);
+
+    // Show modal
+    modal.classList.remove("hidden");
+    modal.classList.add("flex");
+    modal.removeAttribute("inert");
+    document.body.style.overflow = "hidden";
+
+    // Load then play — must stay within user-gesture call stack
+    player.load();
+    player.play().catch(function () {
+      // Some browsers require additional interaction; controls are visible so user can tap play
+    });
+
+    // Focus close button for keyboard users
+    requestAnimationFrame(function () {
+      modalClose && modalClose.focus();
+    });
+  }
+
+  function closeModal() {
+    if (!modal || !player) return;
+
+    player.pause();
+    // Remove sources completely so browser stops buffering
+    player.removeAttribute("poster");
+    player.innerHTML = "";
+    player.load();
+
+    modal.classList.remove("flex");
+    modal.classList.add("hidden");
+    modal.setAttribute("inert", "");
+    document.body.style.overflow = "";
+
+    // Return focus to the card that opened the modal
+    activeTrigger && activeTrigger.focus();
+    activeTrigger = null;
+  }
+
+  triggers.forEach(function (trigger) {
+    trigger.addEventListener("click", function () {
+      openModal(trigger);
+    });
+  });
+
+  modalClose && modalClose.addEventListener("click", closeModal);
+
+  // Click on backdrop (not on video content) closes modal
+  modalBackdrop &&
+    modalBackdrop.addEventListener("click", closeModal);
+
+  // Escape key closes modal
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && modal && !modal.classList.contains("hidden")) {
+      closeModal();
+    }
+  });
+</script>
