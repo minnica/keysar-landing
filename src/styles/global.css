@@ -15,6 +15,38 @@
   --color-keysar-dark: #262626;
 }
 
+/* ─── Keysar Premium Gradient System ─────────────────────────────────────────
+   Base uniforme: #ECD1C8 sólido en todas las variantes → sin saltos entre secciones.
+   Radiales encima añaden profundidad y luminosidad sin alterar el tono de borde.
+   Dominant: #ECD1C8 · Luz: #F3F0E9 · Acento cálido: #C3A583
+   ─────────────────────────────────────────────────────────────────────────── */
+
+.ks-section-a {
+  background:
+    radial-gradient(ellipse 85% 70% at 18% 0%, rgba(243, 240, 233, 0.62) 0%, transparent 100%),
+    #ecd1c8;
+}
+
+.ks-section-b {
+  background:
+    radial-gradient(ellipse 72% 65% at 84% 100%, rgba(243, 240, 233, 0.55) 0%, transparent 100%),
+    radial-gradient(ellipse 36% 36% at 90% 6%, rgba(195, 165, 131, 0.13) 0%, transparent 100%),
+    #ecd1c8;
+}
+
+.ks-section-c {
+  background:
+    radial-gradient(ellipse 92% 65% at 50% 44%, rgba(243, 240, 233, 0.50) 0%, transparent 100%),
+    #ecd1c8;
+}
+
+.ks-section-d {
+  background:
+    radial-gradient(ellipse 58% 62% at 4% 52%, rgba(243, 240, 233, 0.60) 0%, transparent 100%),
+    radial-gradient(ellipse 52% 55% at 96% 28%, rgba(195, 165, 131, 0.11) 0%, transparent 100%),
+    #ecd1c8;
+}
+
 html {
   scroll-behavior: smooth;
 }

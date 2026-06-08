@@ -4,47 +4,69 @@ const facialTreatments = [
     title: "Peel Off",
     description:
       "Renovación profunda que purifica y mejora la textura de la piel.",
+    imageSrc: "/images/facial-1.webp",
+    imageAlt: "Tratamiento Peel Off — renovación y purificación facial",
   },
   {
     title: "Oxycura",
     description: "Oxigenación intensiva que devuelve frescura y luminosidad.",
+    imageSrc: "/images/facial-2.webp",
+    imageAlt: "Tratamiento Oxycura — oxigenación facial intensiva",
   },
   {
     title: "Lifting Facial",
     description: "Reafirma, redefine y mejora la elasticidad facial.",
+    imageSrc: "/images/facial-3.webp",
+    imageAlt: "Tratamiento Lifting Facial — reafirmación y elasticidad",
   },
   {
     title: "Anti Acné",
     description: "Equilibrio profundo para pieles con tendencia acneica.",
+    imageSrc: "/images/facial-4.webp",
+    imageAlt: "Tratamiento Anti Acné — equilibrio para piel acneica",
   },
   {
     title: "Cryoskin",
     description: "Efecto tensor y revitalizante con tecnología de frío.",
+    imageSrc: "/images/facial-5.webp",
+    imageAlt: "Tratamiento Cryoskin — tensor y revitalizante con frío",
   },
   {
     title: "Eternal Eye",
     description: "Rejuvenece e ilumina la zona del contorno de ojos.",
+    imageSrc: "/images/facial-6.webp",
+    imageAlt: "Tratamiento Eternal Eye — rejuvenecimiento del contorno de ojos",
   },
   {
     title: "Divine Neck & Chest",
     description: "Cuidado especializado para cuello y escote.",
+    imageSrc: "/images/facial-7.webp",
+    imageAlt: "Tratamiento Divine Neck & Chest — cuidado de cuello y escote",
   },
   {
     title: "Ritual Eye VIP",
     description: "Experiencia premium para revitalizar la mirada.",
+    imageSrc: "/images/facial-8.webp",
+    imageAlt: "Ritual Eye VIP — experiencia premium para la mirada",
   },
   {
     title: "Golden Glow 24K",
     description: "Reafirma, redefine y mejora la elasticidad facial.",
+    imageSrc: "/images/facial-9.webp",
+    imageAlt: "Tratamiento Golden Glow 24K — luminosidad y elasticidad",
   },
   {
     title: "Hilos Tensores Absorbentes",
     description: "Mejora la firmeza y redefine contornos.",
+    imageSrc: "/images/facial-10.webp",
+    imageAlt: "Tratamiento Hilos Tensores Absorbentes — firmeza y contornos",
   },
   {
     title: "Experiencia Body VIP Keysar",
     description:
       "Una experiencia integral que combina técnicas avanzadas, atención personalizada y un enfoque sensorial único.",
+    imageSrc: "/images/facial-11.webp",
+    imageAlt: "Experiencia Body VIP Keysar — ritual integral premium",
   },
 ];
 
@@ -52,35 +74,51 @@ const bodyTreatments = [
   {
     title: "Masaje Relajante",
     description: "Calma profunda que libera estrés y tensión.",
+    imageSrc: "/images/corporal-1.webp",
+    imageAlt: "Masaje Relajante — calma profunda y alivio del estrés",
   },
   {
     title: "Masaje Descontracturante",
     description:
       "Alivia tensiones musculares profundas y devuelve movilidad al cuerpo.",
+    imageSrc: "/images/corporal-2.webp",
+    imageAlt: "Masaje Descontracturante — alivio de tensiones musculares",
   },
   {
     title: "Drenaje Linfático",
     description: "Ligereza corporal que estimula y desinflama.",
+    imageSrc: "/images/corporal-3.webp",
+    imageAlt: "Drenaje Linfático — ligereza corporal y reducción de inflamación",
   },
   {
     title: "Masaje Cuerpo Completo",
     description: "Equilibrio total para cuerpo y mente.",
+    imageSrc: "/images/corporal-4.webp",
+    imageAlt: "Masaje Cuerpo Completo — equilibrio total corporal",
   },
   {
     title: "Reflexología",
     description: "Armonía interna a través de puntos clave.",
+    imageSrc: "/images/corporal-5.webp",
+    imageAlt: "Reflexología — armonía interna por puntos reflexivos",
   },
   {
     title: "Antiacné Espalda",
     description: "Purificación profunda para una piel uniforme.",
+    imageSrc: "/images/corporal-6.webp",
+    imageAlt: "Tratamiento Antiacné Espalda — purificación y piel uniforme",
   },
   {
     title: "Piernas Cansadas",
     description: "Frescura inmediata y sensación de ligereza.",
+    imageSrc: "/images/corporal-7.webp",
+    imageAlt: "Tratamiento Piernas Cansadas — frescura y ligereza inmediata",
   },
   {
     title: "Experiencia Body VIP Keysar",
     description: "El ritual corporal más exclusivo de la casa.",
+    imageSrc: "/images/corporal-8.webp",
+    imageAlt: "Experiencia Body VIP Keysar — ritual corporal exclusivo",
   },
 ];
 
@@ -89,22 +127,18 @@ const treatmentGroups = [
     key: "faciales",
     label: "Faciales",
     ariaLabel: "tratamientos faciales",
-    imageSrc: "/images/treatment-facial.png",
-    imageAltPrefix: "Tratamiento",
     treatments: facialTreatments,
   },
   {
     key: "corporales",
     label: "Corporales",
     ariaLabel: "tratamientos corporales",
-    imageSrc: "/images/body-massage.png",
-    imageAltPrefix: "Tratamiento corporal",
     treatments: bodyTreatments,
   },
 ];
 ---
 
-<section id="servicios" class="bg-[#fbfaf7] px-6 py-20 md:px-10 lg:py-24">
+<section id="servicios" class="ks-section-b px-6 py-20 md:px-10 lg:py-24">
   <div class="mx-auto max-w-7xl">
     <div class="mx-auto max-w-3xl text-center">
       <h2
@@ -193,10 +227,11 @@ const treatmentGroups = [
                 <article class="group flex snap-start flex-col overflow-hidden rounded-[4px] bg-[#f7eee9] shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md">
                   <div class="aspect-[1.75/1] overflow-hidden">
                     <img
-                      src={group.imageSrc}
-                      alt={`${group.imageAltPrefix} ${treatment.title}`}
+                      src={treatment.imageSrc}
+                      alt={treatment.imageAlt}
                       class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
                       loading="lazy"
+                      decoding="async"
                     />
                   </div>
 
